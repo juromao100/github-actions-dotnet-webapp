@@ -1,0 +1,52 @@
+
+name: GH4W - Modulo 4 - .NET - Web App
+
+on:
+
+#Trigger para executar o build a cada push realizado na branch main.
+
+    push:
+        branches: 
+          - main
+
+#Agendamento da execução do job-cron de hora em hora.
+
+    schedule:
+      - cron: '0 * * * *'
+
+jobs:
+
+    #job-build baseado em: .NET By GitHub Actions
+    job-build:
+
+        runs-on: ubuntu-latest
+
+        steps:
+
+        - name: Checkout my repository
+          uses: actions/checkout@v4
+
+        - name: Setup .NET
+          uses: actions/setup-dotnet@v4
+          with:
+            dotnet-version: 8.0.x
+
+        - name: Restore dependencies
+          run: dotnet restore
+
+        - name: Build
+          run: dotnet build --no-restore
+            
+        - name: Test
+          run: dotnet test --no-build --verbosity normal
+
+    job-cron:
+
+        runs-on: ubuntu-latest
+
+        steps:
+
+        - name: Checkout my repository
+          uses: actions/checkout@v4
+
+        - run: echo "Job executado por agendamento!"
