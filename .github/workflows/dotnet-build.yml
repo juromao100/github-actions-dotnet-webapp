@@ -32,7 +32,7 @@ jobs:
             dotnet-version: 8.0.x
 
         - name: Restore dependencies
-          run: dotnet restore /workspaces/github-actions-dotnet-webapp/github4women/github4women.csproj
+          run: dotnet restore github4women/github4women.csproj
 
         - name: Build and test
           run: dotnet build --configuration Release
