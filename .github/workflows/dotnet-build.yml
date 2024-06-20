@@ -35,7 +35,7 @@ jobs:
           run: dotnet restore github4women/github4women.csproj
 
         - name: Build and test
-          run: dotnet build --configuration Release
+          run: dotnet build github4women/github4women.csproj --configuration Release
             
 
     job-cron:
