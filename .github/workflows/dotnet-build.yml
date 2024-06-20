@@ -31,11 +31,12 @@ jobs:
           with:
             dotnet-version: 8.0.x
 
-        - name: Build
-          working-directory: src/github4women/Pages/Index.cshtml
-          run: dotnet build
-            
+        - name: Restore dependencies
+          run: dotnet restore
 
+        - name: Build and test
+          run: dotnet build --configuration Release
+            
 
     job-cron:
 
