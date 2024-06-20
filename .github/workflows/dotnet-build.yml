@@ -49,4 +49,4 @@ jobs:
         - name: Checkout my repository
           uses: actions/checkout@v4
 
-        - run: echo "Job executado por agendamento!"
+        - run: echo "Job executado por agendamento para fins de aprendizado do Git Hub Actions."
